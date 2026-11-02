@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#EDF0F4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#10141C" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Cardfile">
+<meta name="robots" content="noindex">
+<title>Cardfile</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="brand">Cardfile<small id="count">Your business card contacts</small></div>
+    <button class="btn small" id="exportBtn">Export &amp; backup</button>
+  </div>
+  <main id="main"><p class="muted">Loading your contacts…</p></main>
+</div>
+<nav class="tabbar" aria-label="Sections"><div class="tabbar-in">
+  <a href="#contacts" id="tab-contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2.2"/><path d="M5.8 16c.6-1.6 1.8-2.4 3.2-2.4s2.6.8 3.2 2.4M14.5 10h4M14.5 13.5h3"/></svg>Contacts</a>
+  <button class="scan" id="scanBtn" aria-label="Scan a business card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3.2"/></svg></button>
+  <a href="#followups" id="tab-followups"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 9.5h16M9 3v4M15 3v4M8.5 14l2.2 2.2 4.6-4.6"/></svg><span>Follow-ups<span id="dueBadge"></span></span></a>
+</div></nav>
+<input type="file" id="camFront" accept="image/*" capture="environment" hidden>
+<input type="file" id="pickFront" accept="image/*" hidden>
+<input type="file" id="camBack" accept="image/*" capture="environment" hidden>
+<input type="file" id="restoreFile" accept="application/json,.json" hidden>
+<div id="sheet"></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="vendor/tesseract.min.js"></script>
+<script src="parse.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
